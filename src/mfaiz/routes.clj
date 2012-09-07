@@ -10,13 +10,9 @@
 (deftemplate chrome "mfaiz/templates/chrome.html" [page]
   [:#main] (content ((-> (str "mfaiz.routes/" page) symbol resolve))))
 
-(deftemplate my "mfaiz/templates/chrome.html" []
-  [:#main] (content (reg)))
-
 (def my-app (app
              wrap-stacktrace
              (wrap-file "resources/public/")
-             ["my"] (-> (my) response constantly)
              [page] (-> (chrome page) response constantly)
              [&] "Nothing was found"))
  
