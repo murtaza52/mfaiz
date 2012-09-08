@@ -15,7 +15,7 @@
 (def my-app (app
              wrap-stacktrace
              (wrap-file "resources/public/")
+             [""] "Hello World"
+             ["/"] "Hello World Second"
              [page] (-> (chrome page) response constantly)
-             ["a" "b"] (-> "a b" response constantly))
              [&] (-> "Nothing was found" response (status 404) constantly)))
- 
